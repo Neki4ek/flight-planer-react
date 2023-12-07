@@ -33,6 +33,14 @@ const MainApp = () => {
     clearForm();
   }
 
+  const handlerRemovePlan = (index) => {
+    setPlan([...plan.slice(0, index), ...plan.slice(index+1)])
+  }
+
+  const logId = id =>{
+    console.log(id);
+  }
+
   return (
     <>
       <header className="App-header">
