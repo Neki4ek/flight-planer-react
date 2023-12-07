@@ -6,7 +6,7 @@
 .App {
   text-align: center;
   /*background-image: url("/public/back-clouds.jpg");*/
-  background: url("/public/back-clouds.jpg") no-repeat;
+  background: url("/src/assets/back-clouds.jpg") no-repeat;
   background-attachment: fixed
 }
 input[type="text"]
@@ -198,38 +198,16 @@ h2{
   margin-left: 60px;
   margin-right: 25px;
 }
-.added-flight{
-  display: flex;
-  background-color: #ecf0f1;
-  border: 1px solid;
-  border-color: #000000;
-  border-radius: 30px;
-  height: auto;
-  width: 630px;
-  margin-top: 10px;
-  align-items: center;
+.scroll{
+  overflow-y: scroll;
+  height: 475px;
 }
-.table-element-item{
-  text-align: center;
+.scroll::-webkit-scrollbar { /* webkit */
+  width: 4px;
+  height: 0;
 }
-.table-element-item-1{
-  display: block;
-  margin-left: 15px;
-  width: 40px;
-  justify-items: right;
-}
-.table-element-item-2{
-  display: block;
-  width: 180px;
-  justify-items: center;
-}
-.table-element-item-3{
-  display: block;
-  width: 180px;
-  justify-items: center;
-}
-.table-element-item-4{
-  display: block;
-  width: 170px;
-  justify-items: center;
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: white;    /* цвет бегунка */
+  border-radius: 20px;       /* округлось бегунка */
 }
