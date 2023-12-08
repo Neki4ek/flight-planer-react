@@ -193,7 +193,7 @@
   }
   .scroll{
     overflow-y: scroll;
-    height: 475px;
+    height: 480px;
   }
   .scroll::-webkit-scrollbar { /* webkit */
     width: 4px;
