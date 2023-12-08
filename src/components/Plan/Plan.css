@@ -12,11 +12,10 @@
     border: 1px solid;
     border-color: #000000;
     border-radius: 30px;
-    height: auto;
+    min-height: 40px;
     width: 630px;
     margin-top: 10px;
     align-items: center;
-    height: 56px;
 }
 .table-element{
     display: flex;

@@ -16,7 +16,7 @@ const MainApp = () => {
     }
     return data;
   }
-
+  
   const clearForm = () => {
     const form = document.getElementById('form');
 
@@ -31,15 +31,11 @@ const MainApp = () => {
       course, speed, altitude}])
 
     clearForm();
-  }
-
-  const checkIds = () => {
-    plan.forEach((element) => console.log(element.id));
-  }
+  };
 
   return (
     <>
-      <header className="App-header">
+      <header class="App-header">
       <h1>Make Your Flight Simulation</h1>
         <form class="add-stage" id="form" method='POST' enctype="application/json"> 
           <div class="add-stage-element add-stage-element-1">
