@@ -88,7 +88,6 @@ const MainApp = () => {
               />
             )} 
             </div>
-            <button type='button' onClick={() => checkIds()}>Проверка значений</button>
           </tbody>
         </table>
       </div>
