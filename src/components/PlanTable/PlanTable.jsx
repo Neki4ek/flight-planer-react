@@ -32,11 +32,7 @@ const MainApp = () => {
 
     clearForm();
   }
-
-  const checkIds = () => {
-    plan.forEach((element) => console.log(element.id));
-  }
-
+  
   return (
     <>
       <header className="App-header">
@@ -88,7 +84,6 @@ const MainApp = () => {
               />
             )} 
             </div>
-            <button type='button' onClick={() => checkIds()}>Проверка значений</button>
           </tbody>
         </table>
       </div>
