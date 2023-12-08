@@ -33,12 +33,8 @@ const MainApp = () => {
     clearForm();
   }
 
-  const handlerRemovePlan = (index) => {
-    setPlan([...plan.slice(0, index), ...plan.slice(index+1)])
-  }
-
-  const logId = id =>{
-    console.log(id);
+  const checkIds = () => {
+    plan.forEach((element) => console.log(element.id));
   }
 
   return (
@@ -92,6 +88,7 @@ const MainApp = () => {
               />
             )} 
             </div>
+            <button type='button' onClick={() => checkIds()}>Проверка значений</button>
           </tbody>
         </table>
       </div>

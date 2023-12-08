@@ -10,7 +10,7 @@ const PlanItem = ({id, course, speed, altitude}) => {
 
     useEffect(() => {
     return () => {
-      console.log('Компонент удален');
+        
     };
     }, []);
 
