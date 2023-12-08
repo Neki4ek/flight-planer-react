@@ -29,6 +29,7 @@
 }
 .table-element-item{
     text-align: center;
+    word-wrap:break-word;
 }
 .table-element-item-1{
     display: block;
