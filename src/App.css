@@ -117,10 +117,26 @@ header p{
   height: 36px;
   background: #2a65a1;
 }
+.plus:hover{
+  background-color: #13406d;
+}
+.plus:active{
+  width: 45px;
+  height: 45px;
+}
+.minus:hover{
+  background-color: #13406d;
+}
+.minus:active{
+  width: 30px;
+  height: 30px;
+}
 .add-stage-element-1{
   margin-left: 25px;
 }
 .add-stage-element-4{
+  width: 50px;
+  height: 50px;
   margin-right: 25px;
 }
 .map{
