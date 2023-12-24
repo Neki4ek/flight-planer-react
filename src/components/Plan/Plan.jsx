@@ -1,29 +1,42 @@
 import React, { useState, useEffect } from 'react';
-import '../Plan/Plan.css'
-import minus from '../../assets/Decrease.png'
+import '../Plan/Plan.css';
+import minus from '../../assets/Decrease.png';
 
 
 
-const PlanItem = ({id, course, speed, altitude}) => {
+const PlanItem = ({index, heading, speed, altitude}) => {
 
     const [showComponent, setShowComponent] = useState(true);
-
     useEffect(() => {
-    return () => {
-        
-    };
-    }, []);
+        return () => {
+            
+        };
+    }, {});
+    const handleClick = async () => {
+        try {
+            const response = await fetch(`https://localhost:7110/api/launch/stages/${index}`, {
+                method: 'DELETE'
+            });
 
-    const handleClick = () => {
-        setShowComponent(false);
+            if (response.ok) { 
+                // Если запрос был успешным, прячем компонент
+                setShowComponent(false);
+            } else {
+                // Обрабатываем ошибку, если удаление не удалось
+                console.error('Failed to delete the plan item with id:', index);
+            }
+        } catch (error) {
+            // Обрабатываем ошибку сети или ошибку, когда сервер не ответил
+            console.error('Network or server error when attempting to delete plan item:', error);
+        }
     };
     return (
         <>
         {   showComponent &&
-            <div className="added-flight" id={id}>
+            <div className="added-flight" id={index}>
                 <tr className="table-element">
-                    <td className="table-element-item table-element-item-1">{id}</td>
-                    <td className="table-element-item table-element-item-2">{course}</td>
+                    <td className="table-element-item table-element-item-1">{index}</td>
+                    <td className="table-element-item table-element-item-2">{heading}</td>
                     <td className="table-element-item table-element-item-3 table-speed">{speed}</td>
                     <td className="table-element-item table-element-item-4">{altitude}</td>
                     <td>
