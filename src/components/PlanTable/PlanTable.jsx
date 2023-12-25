@@ -17,15 +17,16 @@ const MainApp = () => {
     for (let [name, value] of dataForm){
       data[name] = value;
     }
+    console.log(data);
     return data;
   }
 
   const clearForm = () => {
     const form = document.getElementById('form');
 
-    form.querySelector('.heading').value = '';
-    form.querySelector('.speed').value = '';
-    form.querySelector('.altitude').value = '';
+    form.querySelector('input[name=heading]').value = '';
+    form.querySelector('input[name=speed]').value = '';
+    form.querySelector('input[name=altitude]').value = '';
   }
 
   const handlerAddPlan = async (formData) => {
@@ -66,8 +67,10 @@ const MainApp = () => {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
+    //clearForm();
     return response.json();
   };
+
   const fetchPlanData = async () => {
     try {
       const serverUrl = "https://localhost:7110/api/launch/stages";
@@ -127,7 +130,7 @@ const MainApp = () => {
           </thead>
           <tbody>
             <div class='scroll'>
-            {plan && plan.map(element => 
+            {plan && plan.map(element =>
               <PlanItem
                 key={element.id} 
                 index={element.index}

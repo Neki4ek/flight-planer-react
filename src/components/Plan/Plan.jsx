@@ -5,13 +5,13 @@ import minus from '../../assets/Decrease.png';
 
 
 const PlanItem = ({index, heading, speed, altitude}) => {
-
     const [showComponent, setShowComponent] = useState(true);
     useEffect(() => {
         return () => {
-            
+
         };
     }, {});
+
     const handleClick = async () => {
         try {
             const response = await fetch(`https://localhost:7110/api/launch/stages/${index}`, {
@@ -30,6 +30,7 @@ const PlanItem = ({index, heading, speed, altitude}) => {
             console.error('Network or server error when attempting to delete plan item:', error);
         }
     };
+
     return (
         <>
         {   showComponent &&
@@ -40,7 +41,7 @@ const PlanItem = ({index, heading, speed, altitude}) => {
                     <td className="table-element-item table-element-item-3 table-speed">{speed}</td>
                     <td className="table-element-item table-element-item-4">{altitude}</td>
                     <td>
-                        {showComponent && <button className="minus" type='button' onClick={() => handleClick() }><img src={minus}/></button>}
+                        {showComponent && <button className="minus" type='button' onClick={() =>{handleClick();}}><img src={minus}/></button>}
                     </td>
                 </tr>
             </div>
