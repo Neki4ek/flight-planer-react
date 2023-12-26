@@ -17,6 +17,7 @@ const MainApp = () => {
     for (let [name, value] of dataForm){
       data[name] = value;
     }
+    console.log(data);
     return data;
   }
   const clearForm = () => {
@@ -65,8 +66,10 @@ const MainApp = () => {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
+    //clearForm();
     return response.json();
   };
+
   const fetchPlanData = async () => {
     try {
       const serverUrl = "https://localhost:7110/api/launch/stages";
@@ -126,7 +129,7 @@ const MainApp = () => {
           </thead>
           <tbody>
             <div class='scroll'>
-            {plan && plan.map(element => 
+            {plan && plan.map(element =>
               <PlanItem
                 key={element.id} 
                 id={element.id}
