@@ -8,7 +8,7 @@ const MainApp = () => {
   const [plan, setPlan] = useState([]);
 
   useEffect(() => {
-    fetchPlanData(); // Загружаем данные при инициализации компонента
+    fetchPlanData();
   }, []);
 
   const getData = (form) => {
@@ -19,21 +19,19 @@ const MainApp = () => {
     }
     return data;
   }
-
   const clearForm = () => {
     const form = document.getElementById('form');
 
-    form.querySelector('.heading').value = '';
-    form.querySelector('.speed').value = '';
-    form.querySelector('.altitude').value = '';
+    form.querySelector('input[name=heading]').value = '';
+    form.querySelector('input[name=speed]').value = '';
+    form.querySelector('input[name=altitude]').value = '';
   }
 
   const handlerAddPlan = async (formData) => {
-    // Validate formData before proceeding
     if (!formData.heading || !formData.speed || !formData.altitude) { return; }
 
     // Construct new plan item
-    const newPlan = { index: plan.length, ...formData };
+    const newPlan = { id: plan.length, ...formData };
 
     // Update the state and log the plan items
     setPlan((prevPlan) => {
@@ -49,6 +47,7 @@ const MainApp = () => {
       // Handle any errors that occur during the fetch
       console.error('There was an error sending the data to the server:', error);
     }
+    clearForm();
   };
 
   const logPlanItemData = (updatedPlan) => {
@@ -130,7 +129,7 @@ const MainApp = () => {
             {plan && plan.map(element => 
               <PlanItem
                 key={element.id} 
-                index={element.index}
+                id={element.id}
                 heading={element.heading}
                 speed={element.speed}
                 altitude={element.altitude}

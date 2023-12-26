@@ -4,17 +4,19 @@ import minus from '../../assets/Decrease.png';
 
 
 
-const PlanItem = ({index, heading, speed, altitude}) => {
+const PlanItem = ({id, heading, speed, altitude}) => {
 
     const [showComponent, setShowComponent] = useState(true);
+
     useEffect(() => {
         return () => {
             
         };
     }, {});
+
     const handleClick = async () => {
         try {
-            const response = await fetch(`https://localhost:7110/api/launch/stages/${index}`, {
+            const response = await fetch(`https://localhost:7110/api/launch/stages/${id}`, {
                 method: 'DELETE'
             });
 
@@ -23,7 +25,7 @@ const PlanItem = ({index, heading, speed, altitude}) => {
                 setShowComponent(false);
             } else {
                 // Обрабатываем ошибку, если удаление не удалось
-                console.error('Failed to delete the plan item with id:', index);
+                console.error('Failed to delete the plan item with id:', id);
             }
         } catch (error) {
             // Обрабатываем ошибку сети или ошибку, когда сервер не ответил
@@ -33,9 +35,9 @@ const PlanItem = ({index, heading, speed, altitude}) => {
     return (
         <>
         {   showComponent &&
-            <div className="added-flight" id={index}>
+            <div className="added-flight" id={id}>
                 <tr className="table-element">
-                    <td className="table-element-item table-element-item-1">{index}</td>
+                    <td className="table-element-item table-element-item-1">{id}</td>
                     <td className="table-element-item table-element-item-2">{heading}</td>
                     <td className="table-element-item table-element-item-3 table-speed">{speed}</td>
                     <td className="table-element-item table-element-item-4">{altitude}</td>
