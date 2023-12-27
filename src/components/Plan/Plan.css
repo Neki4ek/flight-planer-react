@@ -1,7 +1,7 @@
 .minus{
     border: 1px solid #000;
     border-radius: 30px;
-    margin-left: 25px;
+    margin-left: 50px;
     width: 36px;
     height: 36px;
     background: #2a65a1;
@@ -27,12 +27,14 @@
     word-wrap:break-word;
 }
 .table-element-item{
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
     word-wrap:break-word;
 }
 .table-element-item-1{
     display: block;
-    margin-left: 15px;
+    /*margin-left: 15px;*/
     width: 40px;
     justify-items: right;
 }

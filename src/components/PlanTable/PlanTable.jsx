@@ -83,11 +83,14 @@ const MainApp = () => {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
-      setPlan(data); // Обновляем состояние плана данными с сервера
+      setPlan(data);
     } catch (error) {
       console.error('There was an error fetching the data:', error);
     }
   };
+  const onRemoveData = async () => {
+    await fetchPlanData();
+  }
   return (
     <>
       <header className="App-header">
@@ -119,7 +122,6 @@ const MainApp = () => {
               <h2>Flight Plan Stages</h2>
               <div class="table-head-info">
                 <tr class="table-element">
-                  <th class="table-element-info table-element-info-1">#</th>
                   <th class="table-element-info table-element-info-2">Course</th>
                   <th class="table-element-info table-element-info-3 table-speed">Indicated Air Speed</th>
                   <th class="table-element-info table-element-info-4">TrueAltitude</th>
@@ -129,13 +131,13 @@ const MainApp = () => {
           </thead>
           <tbody>
             <div class='scroll'>
-            {plan && plan.map(element =>
+            {plan && plan.map((element, index) =>
               <PlanItem
-                key={element.id} 
-                id={element.id}
+                index={index}
                 heading={element.heading}
                 speed={element.speed}
                 altitude={element.altitude}
+                onRemoveData={onRemoveData}
               />
             )} 
             </div>
