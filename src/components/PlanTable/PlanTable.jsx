@@ -133,6 +133,8 @@ const MainApp = () => {
             <div class='scroll'>
             {plan && plan.map((element, index) =>
               <PlanItem
+                key={element.id}
+                id={element.id}
                 index={index}
                 heading={element.heading}
                 speed={element.speed}

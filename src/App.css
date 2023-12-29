@@ -116,6 +116,7 @@ header p{
   width: 36px;
   height: 36px;
   background: #2a65a1;
+  margin-right: 3px;
 }
 .plus:hover{
   background-color: #13406d;
