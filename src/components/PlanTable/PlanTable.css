@@ -5,9 +5,11 @@
   }
   .App {
     text-align: center;
-    /*background-image: url("/public/back-clouds.jpg");*/
-    background: url("/src/assets/back-clouds.jpg") no-repeat;
-    background-attachment: fixed
+    background: url("/src/assets/back-clouds.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
   input[type="text"]
   {
